@@ -245,10 +245,10 @@ AI & Data Science Specialist
 Applied Machine Learning | Data Analytics | Python | SQL
 
 🔗 GitHub
-[https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+[https://github.com/YOUR_USERNAME](https://github.com/GhariebML)
 
 🔗 LinkedIn
-[https://linkedin.com/in/YOUR_LINKEDIN](https://linkedin.com/in/YOUR_LINKEDIN)
+[https://linkedin.com/in/YOUR_LINKEDIN](https://www.linkedin.com/in/ghariebml/)
 
 ---
 
