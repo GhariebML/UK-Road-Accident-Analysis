@@ -1,281 +1,166 @@
----
+<div align="center">
 
-# 🚦 UK Road Accident Data 2021 — End-to-End EDA & Baseline ML
+# 🚦 UK Road Accident Analysis
+### End-to-End Data Science: EDA · Statistical Testing · ML Modeling
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)
-![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-yellow)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)]()
 
----
-
-# 📌 Project Overview
-
-This project presents a **complete end-to-end data science workflow** applied to the **UK Road Safety Dataset (2021)**.
-The analysis focuses on identifying patterns in road accidents and building **machine learning models to predict accident severity**.
-
-The project includes:
-
-* Data cleaning and preprocessing
-* Feature engineering
-* Exploratory Data Analysis (EDA)
-* Statistical testing
-* Machine learning modeling
-* Model evaluation and comparison
-
-The objective is to **extract insights that can support road safety improvement and accident risk understanding**.
+</div>
 
 ---
 
-# 📊 Dataset Information
+## 📌 Project Overview
 
-| Property        | Value               |
-| --------------- | ------------------- |
-| Dataset         | UK Road Safety Data |
-| Region          | London Districts    |
-| Years           | 2021–2022           |
-| Records         | 307,973 accidents   |
-| Features        | 26                  |
-| Target Variable | AccidentSeverity    |
+A complete end-to-end data science workflow applied to the **UK Road Safety Dataset (307,973 accident records)**. This project identifies patterns in road accidents and builds machine learning models to predict accident severity, delivering actionable insights to support road safety improvements.
 
-### Target Classes
-
-| Class   | Description    |
-| ------- | -------------- |
-| Slight  | Minor accident |
-| Serious | Serious injury |
-| Fatal   | Fatal accident |
+### 🎯 Objectives
+- Identify key factors that influence accident severity
+- Discover temporal and environmental patterns in accident occurrence
+- Build and compare 6 baseline ML classification models
+- Provide data-driven recommendations for road safety policy
 
 ---
 
-# 📂 Project Pipeline
+## 📊 Dataset
+
+| Property | Value |
+|----------|-------|
+| Source | UK Road Safety Data |
+| Region | London Districts |
+| Period | 2021–2022 |
+| Records | **307,973 accidents** |
+| Features | 26 variables |
+| Target | Accident Severity (Slight / Serious / Fatal) |
+
+---
+
+## 🔄 Project Pipeline
 
 ```
-Data Loading
-      ↓
-Data Cleaning
-      ↓
-Feature Engineering
-      ↓
-Exploratory Data Analysis (EDA)
-      ↓
-Statistical Testing (Chi-Square)
-      ↓
-Data Preprocessing
-      ↓
-Machine Learning Models
-      ↓
-Model Evaluation & Comparison
+Data Loading → Data Cleaning → Feature Engineering → EDA
+     ↓
+Statistical Testing (Chi-Square) → Preprocessing → ML Modeling → Evaluation
 ```
 
 ---
 
-# 🔍 Exploratory Data Analysis (EDA)
+## 🔍 Key EDA Insights
 
-### Missing Values
-
-| Column                | Missing % |
-| --------------------- | --------- |
-| CarriagewayHazards    | 98.24%    |
-| WeatherConditions     | 1.97%     |
-| RoadType              | 0.50%     |
-| RoadSurfaceConditions | 0.10%     |
-| Time                  | 0.01%     |
-
----
-
-### Key Insights
-
-Some important findings from the analysis:
-
-• **Slight accidents represent about 85% of total cases**
-
-• **Peak accident hours:**
-
-* 8–9 AM
-* 4–6 PM (Rush hours)
-
-• **Darkness conditions increase accident severity**
-
-• **Wet road surfaces are associated with more serious accidents**
-
-• **Urban areas experience the highest accident frequency**
-
-• **Single carriageway roads show the highest accident rates**
+| Finding | Detail |
+|---------|--------|
+| 🟡 Class Distribution | Slight = **85%** of all accidents |
+| ⏰ Peak Hours | 8–9 AM & **4–6 PM** (rush hours) |
+| 🌙 Lighting Effect | Darkness increases severity risk |
+| 🌧️ Weather Impact | Wet roads correlate with serious accidents |
+| 🏙️ Urban vs Rural | Urban areas have highest accident frequency |
+| 🛣️ Road Type | Single carriageways show highest accident rates |
 
 ---
 
-# 🤖 Machine Learning Models
+## 🤖 Machine Learning Models
 
-Six baseline classification models were trained and evaluated using **5-Fold Cross Validation**.
+6 baseline classification models trained with **5-Fold Cross Validation**:
 
-| Model               | Description                    |
-| ------------------- | ------------------------------ |
-| Logistic Regression | Linear classification baseline |
-| Random Forest       | Ensemble tree model            |
-| Gradient Boosting   | Boosting algorithm             |
-| K-Nearest Neighbors | Distance-based classifier      |
-| Decision Tree       | Tree-based model               |
-| SVM (RBF Kernel)    | Non-linear classifier          |
+| Model | Type |
+|-------|------|
+| Logistic Regression | Linear baseline |
+| Random Forest 🏆 | Ensemble (Best) |
+| Gradient Boosting | Boosting |
+| K-Nearest Neighbors | Distance-based |
+| Decision Tree | Tree-based |
+| SVM (RBF Kernel) | Non-linear |
 
----
+### 🏆 Best Model: Random Forest
 
-# 🏆 Best Model
-
-**Random Forest**
-
-| Metric    | Score  |
-| --------- | ------ |
-| Accuracy  | 83.67% |
+| Metric | Score |
+|--------|-------|
+| Accuracy | **83.67%** |
 | Precision | 76.11% |
-| Recall    | 83.67% |
-| F1 Score  | 78.84% |
+| Recall | 83.67% |
+| F1 Score | 78.84% |
 
-### Classification Report
-
-```
-Class      Precision  Recall  F1-score
-Fatal        0.07      0.01      0.02
-Serious      0.21      0.05      0.08
-Slight       0.86      0.97      0.91
-```
-
-⚠ **Note:** The dataset is **highly imbalanced**, which explains the lower performance on the Fatal and Serious classes.
+> ⚠️ **Note:** Dataset is highly imbalanced (85% Slight). SMOTE is planned for v2.
 
 ---
 
-# 📈 Visualizations
+## 🛠️ Tech Stack
 
-The project includes multiple visualizations:
-
-* Accident severity distribution
-* Accidents by hour of day
-* Accidents by day of week
-* Weather conditions vs severity
-* Road surface vs severity
-* Light conditions vs severity
-* Correlation matrix
-* Model comparison charts
-* Cross-validation performance plots
+| Tool | Purpose |
+|------|---------|
+| Python 3.10 | Core language |
+| Pandas & NumPy | Data manipulation |
+| Matplotlib & Seaborn | Visualization |
+| Scikit-learn | ML models |
+| SciPy | Statistical testing |
+| Google Colab | Development environment |
 
 ---
 
-# 🛠 Tech Stack
+## 🚀 How to Run
 
-| Tool         | Purpose                   |
-| ------------ | ------------------------- |
-| Python       | Programming language      |
-| Pandas       | Data manipulation         |
-| NumPy        | Numerical computing       |
-| Matplotlib   | Data visualization        |
-| Seaborn      | Statistical visualization |
-| Scikit-learn | Machine learning          |
-| SciPy        | Statistical testing       |
-| Google Colab | Development environment   |
-
----
-
-# 🚀 How to Run
-
-## Option 1 — Google Colab
-
-1. Open the notebook in **Google Colab**
-2. Run all cells sequentially
-
+**Option 1 — Google Colab (Recommended)**
 ```
-Runtime → Run All
+Open the .ipynb file → Runtime → Run All
 ```
 
----
-
-## Option 2 — Run Locally
-
-Clone the repository:
-
-```
-git clone https://github.com/YOUR_USERNAME/uk-road-accident-eda-ml.git
-cd uk-road-accident-eda-ml
-```
-
-Install dependencies:
-
-```
+**Option 2 — Run Locally**
+```bash
+git clone https://github.com/GhariebML/UK-Road-Accident-Analysis.git
+cd UK-Road-Accident-Analysis
 pip install -r requirements.txt
-```
-
-Run the notebook:
-
-```
 jupyter notebook
 ```
 
 ---
 
-# 📁 Repository Structure
+## 📁 Repository Structure
 
 ```
-uk-road-accident-eda-ml/
-
+UK-Road-Accident-Analysis/
 │
-├── UK_Road_Accident_EDA_ML.ipynb
+├── UK_Road_Accident_EDA_ML.ipynb   # Main notebook
+├── Road Accident Data.xlsx          # Dataset
 ├── README.md
-├── requirements.txt
-└── assets/
+└── LICENSE
 ```
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Improvements
 
-* Handle class imbalance using **SMOTE**
-* Hyperparameter tuning using **GridSearchCV**
-* Test advanced models such as **XGBoost / LightGBM**
-* Add **geospatial accident analysis**
-* Build a **Streamlit dashboard**
-* Apply **SHAP model explainability**
-
----
-
-# 👨‍💻 Author
-
-**Mohamed Gharieb**
-
-AI & Data Science Specialist
-Applied Machine Learning | Data Analytics | Python | SQL
-
-🔗 GitHub
-[https://github.com/YOUR_USERNAME](https://github.com/GhariebML)
-
-🔗 LinkedIn
-[https://linkedin.com/in/YOUR_LINKEDIN](https://www.linkedin.com/in/ghariebml/)
+- [ ] Handle class imbalance with **SMOTE**
+- [ ] Hyperparameter tuning with **GridSearchCV / Optuna**
+- [ ] Test **XGBoost / LightGBM**
+- [ ] Add **geospatial accident heatmap**
+- [ ] Build a **Streamlit interactive dashboard**
+- [ ] Apply **SHAP model explainability**
 
 ---
 
-# 📄 License
+## 👨‍💻 Author
 
-This project is licensed under the **MIT License**.
+<div align="center">
 
----
+**Mohamed Gharieb**  
+*Data Scientist & ML Engineer*
 
-⭐ If you found this project useful, consider **starring the repository**.
+[![GitHub](https://img.shields.io/badge/GitHub-GhariebML-181717?style=flat-square&logo=github)](https://github.com/GhariebML)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ghariebml-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/ghariebml)
 
----
-
-## Next step (important)
-
-After adding the README:
-
-```bash
-git add README.md
-git commit -m "Add professional README"
-git push
-```
+</div>
 
 ---
 
-💡 If you want, I can also show you **3 tricks to make your GitHub project look 10× more professional (used by top data scientists)**:
+## 📄 License
 
-* auto images in README
-* project preview
-* animated charts.
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+  <i>If this project helped you, please ⭐ star the repo — it means a lot!</i>
+</div>
